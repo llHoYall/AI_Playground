@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "neuron.h"
+#include "nn.h"
 
 /* Private Function Prototypes -----------------------------------------------*/
 static void PrintMenu(void);
@@ -21,9 +22,8 @@ int main(void) {
     PrintMenu();
     int menu = getchar();
     switch (menu) {
-      case '1':
-        neuron();
-        break;
+      case '1': neuron();         break;
+      case '2': NeuralNetwork();  break;
 
       case 'q':
       default:
@@ -41,6 +41,8 @@ static void PrintMenu(void) {
   printf("\n");
   printf("=== Menu ===\n");
   printf("1. Neuron\n");
+  printf("2. Neural Network\n");
+  printf("q. Exit\n");
   printf("============\n");
   printf("> ");
 }

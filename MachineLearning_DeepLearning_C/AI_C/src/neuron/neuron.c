@@ -10,14 +10,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "hRandom.h"
 #include "neuron_config.h"
 
 /* Private Function Prototypes -----------------------------------------------*/
 static void InitWeight(double* const w);
-static int GetData(const char* const filename, double* data);
+static int GetData(const char* const filename, double* const data);
 static double Forward(double* const w, double* const data);
-static double F(double u);
+static double F(const double u);
 
 /* APIs ----------------------------------------------------------------------*/
 void neuron(void) {
@@ -26,7 +25,6 @@ void neuron(void) {
   int number_of_data;
   double output;
 
-  hRandom_Init();
   InitWeight(w);
   number_of_data = GetData("./resources/neuron_data.txt", &data[0][0]);
   for (int i = 0; i < number_of_data; ++i) {
@@ -39,12 +37,12 @@ void neuron(void) {
 
 /* Private Functions ---------------------------------------------------------*/
 static void InitWeight(double* const w) {
-  *w = 1;
+  *(w + 0) = 1;
   *(w + 1) = 1;
   *(w + 2) = 1.5;
 }
 
-static int GetData(const char* const filename, double* data) {
+static int GetData(const char* const filename, double* const data) {
   int number_of_data = 0;
   int i = 0;
   FILE* fp = fopen(filename, "r");
@@ -71,14 +69,13 @@ static double Forward(double* const w, double* const data) {
   int i = 0;
   double u = 0;
   for (i = 0; i < _NUM_OF_INPUT; ++i) {
-    u += (*(data + i) * *(w + i));
+    u += *(data + i) * *(w + i);
   }
   u -= *(w + i);
-  double o = F(u);
-  return o;
+  return F(u);
 }
 
-static double F(double u) {
+static double F(const double u) {
   // Unit step function
   if (u >= 0) {
     return 1.0;
