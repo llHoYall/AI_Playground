@@ -2,8 +2,8 @@
  * @brief   Neural Network.
  * @author  llHoYall <hoya128@gmail.com>
  * @version v1.0
- * @note
- *  - 2018.10.22  Created.
+ * @history
+ *    2018.10.22  Created.
  ******************************************************************************/
 
 /* Include Headers -----------------------------------------------------------*/
@@ -25,20 +25,18 @@ void NeuralNetwork(void) {
 	double wo[_NUM_OF_HIDDEN + 1];
   double hi[_NUM_OF_HIDDEN + 1];
   double data[_MAX_NUM_OF_INPUT][_NUM_OF_INPUT];
-  int number_of_data;
-  double output;
 
 	InitWeightHidden(&wh[0][0]);
   InitWeightOutput(wo);
 
-  number_of_data = GetData("./resources/nn_data.txt", &data[0][0]);
+  int number_of_data = GetData("./resources/nn_data.txt", &data[0][0]);
 
   for (int i = 0; i < number_of_data; ++i) {
     printf("%d", i);
     for (int j = 0; j < _NUM_OF_INPUT; ++j) {
       printf(", %lf", data[i][j]);
     }
-    output = Forward(&wh[0][0],  wo, hi, &data[i][0]);
+    double output = Forward(&wh[0][0], wo, hi, &data[i][0]);
     printf(", %lf\n", output);
   }
 }
@@ -111,5 +109,5 @@ static double F(const double u) {
   }
 
   // Sigmoid function
-  return 1.0 / (1.0 + exp(-u));
+  // return 1.0 / (1.0 + exp(-u));
 }

@@ -1,9 +1,9 @@
 /*******************************************************************************
- * @brief   Configurator.
+ * @brief   Neural Network Configurator.
  * @author  llHoYall <hoya128@gmail.com>
  * @version v1.0
- * @note
- *  - 2018.10.20  Created.
+ * @history
+ *  	2018.10.20  Created.
  ******************************************************************************/
 
 #ifndef __NEURAL_NETWORK_CONFIGURATOR_H__

@@ -2,8 +2,8 @@
  * @brief   Main file.
  * @author  llHoYall <hoya128@gmail.com>
  * @version v1.0
- * @note
- *  - 2018.10.22  Created.
+ * @history
+ *    2018.10.22  Created.
  ******************************************************************************/
 
 /* Include Headers -----------------------------------------------------------*/
@@ -11,6 +11,7 @@
 #include <stdbool.h>
 #include "neuron.h"
 #include "nn.h"
+#include "back_propagation.h"
 
 /* Private Function Prototypes -----------------------------------------------*/
 static void PrintMenu(void);
@@ -22,8 +23,9 @@ int main(void) {
     PrintMenu();
     int menu = getchar();
     switch (menu) {
-      case '1': neuron();         break;
-      case '2': NeuralNetwork();  break;
+      case '7': Neuron();           break;
+      case '8': NeuralNetwork();    break;
+      case '9': BackPropagation();  break;
 
       case 'q':
       default:
@@ -40,8 +42,9 @@ int main(void) {
 static void PrintMenu(void) {
   printf("\n");
   printf("=== Menu ===\n");
-  printf("1. Neuron\n");
-  printf("2. Neural Network\n");
+  printf("7. Neuron\n");
+  printf("8. Neural Network\n");
+  printf("9. Back Propagation\n");
   printf("q. Exit\n");
   printf("============\n");
   printf("> ");

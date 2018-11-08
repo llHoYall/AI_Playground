@@ -2,8 +2,8 @@
  * @brief   Neuron.
  * @author  llHoYall <hoya128@gmail.com>
  * @version v1.0
- * @note
- *  - 2018.10.20  Created.
+ * @history
+ *    2018.10.20  Created.
  ******************************************************************************/
 
 /* Include Headers -----------------------------------------------------------*/
@@ -19,18 +19,16 @@ static double Forward(double* const w, double* const data);
 static double F(const double u);
 
 /* APIs ----------------------------------------------------------------------*/
-void neuron(void) {
+void Neuron(void) {
   double w[_NUM_OF_INPUT + 1];
   double data[_MAX_NUM_OF_INPUT][_NUM_OF_INPUT];
-  int number_of_data;
-  double output;
 
   InitWeight(w);
-  number_of_data = GetData("./resources/neuron_data.txt", &data[0][0]);
+  int number_of_data = GetData("./resources/neuron_data.txt", &data[0][0]);
   for (int i = 0; i < number_of_data; ++i) {
     printf("%d", i);
     printf(", %lf, %lf", data[i][0], data[i][1]);
-    output = Forward(w, &data[i][0]);
+    double output = Forward(w, &data[i][0]);
     printf(", %lf\n", output);
   }
 }
@@ -84,5 +82,5 @@ static double F(const double u) {
   }
 
   // Sigmoid function
-  return 1.0 / (1.0 + exp(-u));
+  // return 1.0 / (1.0 + exp(-u));
 }

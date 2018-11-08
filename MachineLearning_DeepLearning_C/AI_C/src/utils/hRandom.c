@@ -2,8 +2,8 @@
  * @brief   Random module.
  * @author  llHoYall <hoya128@gmail.com>
  * @version v1.0
- * @note
- *  - 2018.09.07  Created.
+ * @history
+ *    2018.09.07  Created.
  ******************************************************************************/
 
 /* Include Headers -----------------------------------------------------------*/
