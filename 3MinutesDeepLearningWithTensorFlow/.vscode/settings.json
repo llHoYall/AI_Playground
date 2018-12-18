@@ -1,0 +1,10 @@
+{
+	"python.pythonPath": ".venv\\Scripts\\python.exe",
+	"python.linting.pylintEnabled": false,
+	"python.linting.banditEnabled": false,
+	"python.linting.enabled": true,
+	"python.linting.pep8Enabled": true,
+	"[python]": {
+		"editor.formatOnSave": true
+	}
+}
