@@ -2,5 +2,11 @@
 **/.python-version
 **/venv/
 
+# Node.js
+**/node_modules/
+
 # build
 **/build/
+
+# Database
+**/database/
